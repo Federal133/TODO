@@ -1,0 +1,183 @@
+$bg-color: #171723;
+$primary: #25273c;
+$blue: #355bc6;
+$color: #c7c7c7;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: $primary;
+	border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $blue;
+}
+
+.main {
+  height: 100vh;
+  background: $bg-color;
+
+  &-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background-image: url(../img/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+  }
+  &-title {
+    font-size: 60px;
+    text-align: center;
+    color: $color;
+    padding: 60px 0;
+    font-weight: 100;
+    letter-spacing: 20px;
+  }
+}
+
+.form {
+  width: 600px;
+  margin: 0 auto;
+  background: $primary;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+
+  &-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid $color;
+    background: none;
+    color: $color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+    cursor: pointer;
+    &:hover {
+      border-color: $blue;
+      color: $blue;
+    }
+  }
+  &-input {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: $color;
+  }
+}
+
+.wrapper {
+  width: 600px;
+  margin: 50px auto 0;
+  max-height: 450px;
+  background: $primary;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.todos {
+  list-style: none;
+  &-todo {
+    padding: 20px;
+    border-bottom: 1px solid rgba($color, 0.1);
+    display: flex;
+    align-items: center;
+    background: $primary;
+
+    gap: 20px;
+    &__btn {
+      width: 26px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      background: none;
+      border: 1px solid $color;
+      color: transparent;
+      cursor: pointer;
+    }
+    &__title {
+      font-size: 18px;
+      color: $color;
+    }
+  }
+}
+
+.completed {
+  .todos-todo__btn {
+    border-color: $blue;
+    color: $blue;
+  }
+  .todos-todo__title {
+    color: rgba($color, 0.1);
+    text-decoration: line-through;
+  }
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  &-info {
+    color: rgba($color, 0.2);
+  }
+  &-btns {
+    display: flex;
+    gap: 15px;
+    button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: rgba($color, 0.2);
+      cursor: pointer;
+      &.active-btn {
+        color: $blue;
+        text-shadow: 0 0 3px $blue;
+      }
+    }
+  }
+  .clear {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: rgba($color, 0.2);
+		cursor: pointer;
+    &:hover {
+      color: $blue;
+      text-shadow: 0 0 3px $blue;
+    }
+  }
+}
+
+h1,
+form,
+.wrapper {
+  position: relative;
+  z-index: 1;
+}
